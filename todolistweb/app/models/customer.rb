@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   
-   #has_many :todo_lists
+   has_many :todo_lists
 
    validates :login_name , :uniqueness => true, :presence => true
    validates :password , :presence => true , :confirmation => true
