@@ -1,0 +1,35 @@
+<div class="reg-form">
+ <%= error_messages_for(@customer) %>	
+ <h1> New Customer  </h1>
+   <%= form_for(@customer , :url =>{:action =>'create' }) do |f| %>
+    <table id="reg_table">
+
+   	  <tr>
+	     <th>Login Name </th>
+	     <td><%= f.text_field(:login_name) %> </td> 
+	  </tr >
+	  <tr>
+		<th>Full Name </th>
+		<td><%= f.text_field(:full_name) %> </td>	
+	  </tr>
+	  <tr>
+		<th>Email </th>
+		<td><%= f.text_field(:email) %></td>
+	  </tr>
+	  <tr>
+		<th>Password </th>
+		<td><%= f.password_field(:password) %> </td>	
+	  </tr>
+	  <tr>
+		<th>Confirm Password </th>
+		<td><%= f.password_field(:password_confirmation) %> </td>	
+	  </tr>
+	  <tr>
+			<td colspan=2 align="right" ><%= submit_tag("Sign up") %> </td>
+	  </tr>
+
+   </table>
+ 
+<%end%>
+
+</div>
