@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Todolistweb</title>
+  <title>Mywebapp</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class ="header clearfix" align='center'>
+  <div class="icon-box"></div>	
+ <%if session[:uname]%>
+     <div class="authen-box" >Welcome to our site , user: <%=session[:uname] %>,<%= link_to("Log out",{:controller => 'acess',:action => 'logout'})%>  </div>
+ <%else%> 
+     <div class="authen-box" >Welcome to our site . <%=link_to("Log in?",{:controller => 'acess',:action => 'login'} )%>,<%=link_to("Register?",{:controller => 'customer',:action => 'new'})%> </div>
+ <%end%>	
+</div>
+<div class="content clearfix" >	
+	<%= yield %>
+</div>
+<div class="footer">
+	<p> Any and all use of Ta-da List is subject to the Terms of Service and Privacy Policy.
+	Check out other products from 37signals, the makers of Ta-da List.</p>
+</div>	
 </body>
 </html>

@@ -4,7 +4,11 @@ Todolistweb::Application.routes.draw do
 
 
   get "web/index"
-  resources:customers
+  resources  :customers , :todo_lists ,:items
+  
+  resources :customers do
+      resources :todo_lists
+  end     
   
 
   # The priority is based upon order of creation:

@@ -1,0 +1,253 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+/*Error Box  */
+
+body{
+	background-color:#FFEFD5;
+	padding-top: 0%;
+}
+a:hover , a:active {
+   color: white;
+   background-color:red;	
+}
+.header{
+	background-color:#0000CD;
+	color:#fff;
+	margin-top:0%;
+	padding:5px 5px 5px 5%;
+	width: 100%;
+
+  
+	.authen-box{
+	     float: left;
+		 height:32px;
+		 padding-top:5px;
+		 a {
+			color:#fff;
+			
+		   }
+	}
+	.icon-box{
+		width:32px;
+		height:32px;
+		margin-right: 10px;
+		background: url(/assets/orbz_sun.png);
+		float:left;
+	}
+}
+.footer{
+	width:75%;
+	margin-top:20px;
+	padding-top:10px;
+	border-top:1px solid ;
+	border-color:#C0C0C0;
+	margin-left:50px;
+	p{
+		font-size:small;
+		color:black;
+		
+	}
+}
+
+.errorExplanation {
+	width: 100% ;
+	border: 3px solid black;
+	background-color: #FFC1C1;
+	
+	h2 {
+		background-color: red;
+		border-bottom : 1px solid black;
+		padding:5px 5px 5px ;
+		padding-left: 20px;
+		margin-top: 0%;
+		font-size:large;
+		font-weight:bolder;  	
+		display:none;
+	}
+	p {
+		font-weight: bolder;
+		padding-left: 3%;
+		padding-top: 10px;
+	}
+	ul {
+		padding: 10px 0 5px 8% ;
+		list-style-type: square;
+	}
+	li {
+		padding-bottom:3px;
+	}
+}
+
+.notice{
+	width:100%;
+	font-size:small;
+	background-color:#FFFF33;
+	padding:2px 2px 2px 2px;
+	margin:0px 0px 10px 0px;
+	text-align:center;
+}
+
+/* Register Form */
+
+.content{
+	padding-left: 0%;
+	width:1000px;
+
+}
+
+.reg-form {
+	border:10px solid;
+	border-color:#CCCCCC;
+	padding:0% 5px 0% 0%;
+	background-color:#FFFFFF;
+	margin: 5% 10% 10% 5%;
+	width: 90%;
+	h1{
+		font-size: large;
+		font-weight:bolder;
+		text-align:center;
+		height:20px;
+		padding-top:5px;
+		background-color:#66CC00;
+		width:40%;
+		margin-top:15px;
+		margin-bottom:10px;
+		border-right: 3px solid black;
+		border-top: 3px solid black;
+		border-bottom: 3px solid black;
+
+	}
+
+		
+
+	table{
+		margin-left: 6%;
+		margin-top:10px;
+		tr{
+				width:80%;
+				padding:2px;
+				height:50px;
+		}
+
+		th{
+			 text-align:left;
+			 font-style:italic;
+		}	 
+
+		td{
+			height:90%;
+			padding-left:8px;
+			a{
+				font-size:medium;
+				
+			}
+	 	 }
+	 }
+	
+}
+#change_pass{
+	width:45% ;
+}
+.login-form {
+	border:10px solid;
+	border-color:#CCCCCC;
+	padding:2% 3% 2% 2%;
+	background-color:#FFFFFF;
+	margin: 10% 10% 10% 40%;
+	width:30%;
+	h2{
+		font-size: large;
+		font-weight:bolder;
+		margin-left:2%;
+	}
+	#login_table tr{
+			width:80%;
+			
+			height:30px;
+		
+	}
+	table{
+		margin-left: 4%;
+		margin-top:10px;
+		tr{
+				width:80%;
+				padding:2px;
+				height:50px;
+		}
+
+		th{
+			 text-align:left;
+			 font-style:italic;
+		}	 
+
+		td{
+			height:90%;
+			padding-left:8px ;
+	 	 }
+	 }
+	
+}
+
+/* content-page */
+
+.left-content{
+	margin:4% 2% 2% 4%;
+	padding: 5px 5px 5px 5px;
+	float: left;
+	width:30%;
+	h1{
+		
+		font-size:xx-large;
+		font-weight:bolder;
+		text-align:center;
+	}
+	p{
+		margin-top: 25px;
+		font-style: italic;
+		text-align:center;
+		width:70%;
+		
+	}
+	.sign-link{
+		background-color:#FFE640;
+		width:50%;
+		margin-top: 25px;
+		padding:8px 8px 8px 8px ;
+		a{
+			font-size:large;
+			font-weight:bolder;
+		}
+	}
+	
+}
+			
+.right-content{
+	 margin:3% 2px 2% 10%;
+	 padding: 2% 2px 2% 2%;
+	 float:left;
+	 width:35%;
+	 border: 2px solid ;
+	 border-color:#C0C0C0;
+	 background-color:#FFFFFF ;
+	 h1{
+			font-size:x-large;
+			font-weight:bolder;
+			text-align:left;
+			margin-left:20px;
+		 }
+	.item-box{
+			padding-left:5%;
+			margin-top :10px;
+			list-style-type: square;
+			li{
+				margin:5% 0 5% 30px;
+				text-align:left;
+			}
+	 }
+	
+}

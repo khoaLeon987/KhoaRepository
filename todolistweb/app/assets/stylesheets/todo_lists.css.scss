@@ -1,3 +1,235 @@
-// Place all the styles related to the todo_lists controller here.
+// Place all the styles related to the todo_list controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list-content{
+	margin:3% 3% 3% 0%;
+	ul{
+		padding:10px 0% 1% 4% ;
+		li{
+			margin-bottom:10px;
+			margin-left:55px;
+			font-size:large;
+			
+			.check_item{
+				margin-right:10px;
+			}
+		}
+	}
+	h3{
+		font-size:small;
+		margin-left: 55px;
+		margin-bottom:10px;
+	}
+
+}
+.done-list{
+	
+	ul{
+		padding:0px 0% 1% 4% ;
+		li{
+			margin-bottom:10px;
+			margin-left:55px;
+			font-size:small;
+			color:#808080;
+			
+			.check_item{
+				margin-right:10px;
+			}
+		}
+	}
+
+}
+.create-item-box{
+	visibility: hidden;
+	table{
+		margin-left:30px;
+		padding-bottom: 3px;
+		tr{
+			height:25px;
+		}
+	}
+	
+}
+
+/*manage page*/
+
+.my-list{
+	background-color:#00FF00;
+	margin-top:30px;
+	width:35%;
+	border:3px solid ;
+	border-color:#C0C0C0;
+	border-left-style:none;
+	
+	h1{
+		float:left;
+		width:30%;
+		padding:5px 0px 5px 0px;
+		font-size:x-large;
+		text-align:left;
+	}
+	
+	h3{
+		float:left;
+		font-size:small;
+		width:33%;
+		padding:10px 2px 4px 10px;
+		text-align:center;
+		a{
+			
+			
+		}
+	}
+	.image-box{
+		margin-left:50px;
+		width:32px;
+		height:32px;
+		background-image:url(/assets/Documents.png);
+		float:left;
+		
+	}
+}
+
+.mylists-content{
+	margin-top:20px;
+	margin-left:50px;
+	width:700px;
+	float:left;
+	h3{
+		font-size:small;
+		padding:3px 3px 3px 3px;
+		width: 70%;
+		border-bottom:2px solid;
+		border-color:#C0C0C0;
+	
+	}
+	ul{
+		margin-top:30px;
+		margin-left:50px;
+		margin-bottom:50px;
+		list-style-type: square;
+		li{
+			padding:5px 5px 5px 5px;
+			font-size:large;
+		}
+		
+		
+		
+		
+	}
+}
+.account-box{
+	width:150px;
+	height:90px;
+	padding:15px 10px 10px 10px;
+	border:1px solid black;
+	float:right;
+	margin-top:50px;
+	background-color:#fff;
+	h1{
+		font-size:small;
+		font-weight:bolder;
+		font-style:italic;
+		
+		 }
+	p{
+		margin-top:10px;
+		font-size:small;
+		a{
+			font-size:small;
+			
+		}
+	}	
+}
+.new-list-box{
+	
+	margin:20px 20px 20px 20px;
+	width:800px;
+	table{
+	  margin-top:20px;
+	}
+	th{
+		text-align:center;
+		font-size:large;
+	
+	}
+	tr{
+	
+		height:40px;
+		padding: 3px 3px 3px 3px;
+	}
+	
+
+	td{
+		padding-left:10px;
+	
+	}
+	
+}
+#name_list_input{
+	 input{
+			font-size:large;
+			width:600px;
+	}
+	
+}
+.title{
+	font-size:small;
+	padding:3px 3px 3px 3px;
+	width: 70%;
+	border-bottom:2px solid;
+	border-color:#C0C0C0;
+
+}
+
+.edit-content{
+	   
+		
+	  .remove-check{
+		 display:none;	
+	   }	
+	  input{
+	 	float: left;
+	   }
+	 .delete-button{
+		background-image:url(/assets/grey_delete.gif);
+		width:11px;
+		height:11px;
+		float:left;
+		margin-top:10px;
+		margin-left:5px;
+		
+	 }
+	.list-name{
+		margin: 20px 20px 20px 20px;
+		input{
+			margin-top:5px;
+			width:600px;
+			font-size:large;
+		}
+	  }
+	.list-details{
+		margin: 20px 20px 20px 20px;
+		.box{
+				input{
+					width:600px;
+					font-size:large;
+				}
+		}
+	
+	}
+	h3{
+		font-size: small;
+	}
+	li{
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+	
+	a{
+		font-size:small;
+	}
+	
+	
+}
