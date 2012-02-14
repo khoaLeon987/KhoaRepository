@@ -1,0 +1,25 @@
+<div class="login-form">
+	<% if flash[:notice].blank? == false %>
+  		<div class='notice'><%= flash[:notice] %></div>
+	<%end%>	
+<h2>Login</h2>
+
+    <%= form_tag(:action =>'login') do %>
+	   <table id='login_table' >
+	   	  <tr>
+		     <td>UserName :</td>
+		     <td><%= text_field_tag(:uname) %> </td> 
+		  </tr>
+		  <tr>
+			<td>Password :</td>
+			<td><%= password_field_tag(:pass) %> </td>	
+		  </tr>
+		  <tr >
+			<td colspan='2' align="right" ><%= submit_tag("Log In") %> </td>
+		  </tr>
+
+	   </table>
+
+
+	<% end %>
+</div>

@@ -1,0 +1,20 @@
+<div class="my-list clearfix">
+	   <div class='image-box' > </div><h1><%=link_to("My Lists",customer_todo_lists_url(session[:customer]))%></h1>
+</div>	
+
+<div class='new-list-box'>
+<%= error_messages_for :todo_list %>	
+<%= form_for(:todo_list , :url =>{:action =>'create' }) do |f| %>
+   <table class="reg_cus">
+   	  <tr>
+	     <th>List Name</th>
+	     <td id="name_list_input"><%= f.text_field(:list_name) %> </td> 
+	  </tr>
+	  <tr>
+			<td  align='right' ><%= submit_tag("Make New List") %> </td>
+	  </tr>
+
+   </table>
+<%end%>
+
+</div>

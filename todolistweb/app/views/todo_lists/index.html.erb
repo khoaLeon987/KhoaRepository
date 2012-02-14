@@ -1,0 +1,23 @@
+<% if flash[:notice].blank? == false %>
+		<div class='notice'><%= flash[:notice] %></div>
+<% end %>
+
+<div class="my-list clearfix">
+	   <div class=image-box> </div><h1>My lists </h1><h3 align='right'> <%=link_to("Add New List",new_todo_list_url) %></h3>
+</div>	
+<div class="manage-box clearfix">
+
+	<div class="mylists-content" >
+		<h3> My Lists </h3>
+		<ul> 
+		     <% @lists.each  do |list|   %>
+			  	<li><%= link_to(list.list_name , todo_list_items_url(list) )%> </li>
+		     <%end%>
+		</ul>
+	</div>
+
+	<div class="account-box">
+		<h1>Your account:</h1>
+		<p>You can : <%=link_to("log out?",{:controller =>'todo_list', :action =>'new'}) %> , <%=link_to("change password",{:controller =>'customer', :action =>'change_password'}) %> or <%=link_to("change email",{:controller =>'customer', :action =>'change_email'}) %></p>
+	</div>
+</div>	

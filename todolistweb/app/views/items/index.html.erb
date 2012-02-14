@@ -1,0 +1,69 @@
+<div class="my-list clearfix">
+	   <div class='image-box' > </div><h1><%=link_to("My Lists",todo_lists_url)%></h1><h3 align='left'> This list:<%=link_to("Edit") %>|<%=link_to("Delete",:onclick=> 'return t= window.confirm("are you sure")') %></h3>
+</div>
+
+
+<div class="list-content" id="list_dt">
+	<h3 class='title'><%= @todo_list.list_name   %> </h3>
+	<ul style='list-style-type:none;' id='todolist_items' class='item_list'>
+		<% @details.each do |detail|  %>
+			<li item_id='<%=detail.id%>' item_pos='<%=detail.pos_index%>'  ><input type='checkbox' value='1' class='check_item' /><%=detail.item_desc %> 
+		<% end %>	
+	</ul>
+	<h3 id="linkOpen" ><a href='#' onclick=makeItem()  > Make new item </a> </h3>  
+	<div class="create-item-box">
+	 <%= form_tag({:action =>'create'} ,{:id => "formItem" } ) do |form| %>
+		   <table>
+		   	  <tr>
+			     <td colspan=2><%= text_field_tag(:name , "" ,:size => 80,:id =>'item_val') %></td> 
+			     				
+			  </tr>
+			  <tr>
+				<td>
+					<%= submit_tag("Add Item" , :id => 'add_item_button') %> 
+					<input type='hidden' value='<%=@todo_list.id%>' name='list_id' id='c_list_id'/>
+				</td>
+				<td align='right'> 
+					<h3><a href='#' onclick=closeBox()  > Close </a> </h3>  
+				</td>
+			  </tr>	
+		   </table>
+		<%end%>
+	</div>
+<div class="done-list" id='new_place'>
+	
+	<ul style='list-style-type:none;' id='todolist_done' class='item_list'>
+		<% @details_done.each do |detail_done|  %>
+			<li item_id='<%=detail_done.id%>'><input type='checkbox' checked=true class='check_item' /><%=detail_done.item_desc %> 
+		<% end %>	
+	</ul>
+</div>	
+</div>	
+
+<script language='javascript'>
+	$(document).ready(function() {
+	      setItemProcess();
+		  addItemAjax();
+	
+	});
+	$(function(){
+		 $("#todolist_items").sortable({
+			
+			axis:'y',
+			stop:function(event,ui){
+				 var item_pos = new Array();
+				 $("#todolist_items").children().each(function(index){
+					item_pos[index] = $(this).attr("item_id");
+				
+				} );
+				
+				sortItem(item_pos);
+				
+				
+			}
+			
+		});
+		 $("#todolist_items").disableSelection();	
+	});
+	
+</script>
