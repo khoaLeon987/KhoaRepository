@@ -1,5 +1,5 @@
 <div class="my-list clearfix">
-	   <div class='image-box' > </div><h1><%=link_to("My Lists",todo_lists_url)%></h1><h3 align='left'> This list:<%=link_to("Edit") %>|<%=link_to("Delete",:onclick=> 'return t= window.confirm("are you sure")') %></h3>
+	   <div class='image-box' > </div><h1><%=link_to("My Lists",todo_lists_url)%></h1><h3 align='left'> This list:<%=link_to("Edit",edit_todo_list_url(@todo_list))  %>|<%=link_to("Delete",delete_todo_list_url(@todo_list) ,:onclick=> 'return t= window.confirm("are you sure")') %></h3>
 </div>
 
 
@@ -21,7 +21,7 @@
 			  <tr>
 				<td>
 					<%= submit_tag("Add Item" , :id => 'add_item_button') %> 
-					<input type='hidden' value='<%=@todo_list.id%>' name='list_id' id='c_list_id'/>
+			
 				</td>
 				<td align='right'> 
 					<h3><a href='#' onclick=closeBox()  > Close </a> </h3>  
@@ -42,8 +42,8 @@
 
 <script language='javascript'>
 	$(document).ready(function() {
-	      setItemProcess();
-		  addItemAjax();
+	      setItemProcess('<%=item_check_todo_list_items_url(@todo_list)%>','<%=item_unchecked_todo_list_items_url(@todo_list)%>');
+		  addItemAjax('<%=todo_list_items_url(@todo_list)%>');
 	
 	});
 	$(function(){

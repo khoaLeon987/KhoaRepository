@@ -39,32 +39,32 @@ class TodoListsController < ApplicationController
 
       end  
 
-      def edit
-        @cus = Customer.find_by_login_name(session[:uname])
-        @c_list = @cus.todo_lists.find_by_id(params[:cid])
-        if @c_list
-          @details = @c_list.list_items
+    def edit
+        @cus = Customer.find_by_id(session[:customer].id)
+        @todo_list = @cus.todo_lists.find_by_id(params[:id])
+        if @todo_list
+           @items = @todo_list.items
         else
           render :text => "you are not authorized to view this list"
         end
     end  
-      def update
-      @cus = Customer.find_by_login_name(session[:uname])
-      @c_list = @cus.todo_lists.find_by_id(params[:cid])
-      if(@c_list.update_attributes(params[:todo_list])) 
-          redirect_to :action => "show", :cid => @c_list.id
+    def update
+      customer = Customer.find_by_id(session[:customer].id)
+      @todo_list = customer.todo_lists.find_by_id(params[:id])
+      if( @todo_list.update_attributes(params[:todo_list])) 
+          redirect_to (todo_list_items_url(@todo_list))
       else
-        puts @c_list.errors.inspect
-        render :action => :edit
+          render :action => 'edit'
       end
     end  
-      def delete
-         @cus = Customer.find_by_login_name(session[:uname])
-         @c_list = @cus.todo_lists.find_by_id(params[:cid])
-
-         if(TodoList.delete(@c_list))
+    def delete
+         customer = Customer.find_by_id(session[:customer].id)
+         @todo_list = customer.todo_lists.find_by_id(params[:id])
+         items_to_be_destroy = @todo_list.items
+         if(TodoList.delete(@todo_list))
+             Item.delete(items_to_be_destroy)  
              flash[:notice] = "Successfull remove lists !"
-             redirect_to(:controller => 'customer', :action => 'manage' ) 
+             redirect_to(customer_todo_lists_url(customer)) 
          else 
 
          end

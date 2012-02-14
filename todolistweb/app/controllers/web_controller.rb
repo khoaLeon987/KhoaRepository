@@ -1,6 +1,8 @@
 class WebController < ApplicationController
     before_filter :confirm_logged_in , :except => [:login , :logout , :index]
   def index
+      session[:customer] = nil
+      @todo_list = TodoList.random
   end
   
   def login
@@ -20,7 +22,7 @@ class WebController < ApplicationController
 
   end   
   def confirm_logged_in
-           unless session[:uname]
+           unless session[:customer]
              flash[:notice] = "Please Log in"
              redirect_to(:controller => 'web' , :action => 'login')
              return false

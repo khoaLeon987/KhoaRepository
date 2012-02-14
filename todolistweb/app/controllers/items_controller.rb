@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   def item_check
-     list_sort = TodoList.find_by_id(params[:cid]).items.where(:process_stat => false ).order("pos_index ASC")
+     list_sort = TodoList.find_by_id(params[:todo_list_id]).items.where(:process_stat => false ).order("pos_index ASC")
      count = list_sort.size()
      @item = Item.find(params[:id])
 
@@ -21,9 +21,9 @@ class ItemsController < ApplicationController
   end
   
   def item_unchecked
-       @list = TodoList.find_by_id(params[:listId])
+       @list = TodoList.find_by_id(params[:todo_list_id])
 
-       pos = @list.list_items.where(:process_stat => false).count()
+       pos = @list.items.where(:process_stat => false).count()
        @item = Item.find(params[:id])
 
        pos += 1  
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   end
    
   def create
-      list = TodoList.find_by_id(params[:list_id])
+      list = TodoList.find_by_id(params[:todo_list_id])
 
       pos = list.items.where(:process_stat => false).count()
       pos += 1

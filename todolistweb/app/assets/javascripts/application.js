@@ -7,7 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-function addItemAjax() {
+function addItemAjax(url) {
 	$("#add_item_button").click(function(){
 		// $.post("/todo_list/item", {
 		// 	name: $("#item_val").val(),
@@ -17,10 +17,10 @@ function addItemAjax() {
 		// }, "json");
 		$.ajax({
 			type:"POST",
-			url: "/items/create",
-				data: {
+			url: url,
+			data: {
 					name: $("#item_val").val(),
-					list_id: $("#c_list_id").val()
+					
 			},
 			success: function(result){
 				if(result == "fail")
@@ -48,7 +48,7 @@ function addItemAjax() {
 	});		
 }
 
-function setItemProcess(){
+function setItemProcess(path_check,path_uncheck){
 	
 	
 		// $.post("/todo_list/item", {
@@ -63,9 +63,9 @@ function setItemProcess(){
 					   var that = this;
                     	$.ajax({
 							type:"POST",
-							url: "/items/item_check",
+							url: path_check,
 								data: {
-								    cid: $("#c_list_id").val(),
+								    
 									id: $(this).parent().attr("item_id")
 							},
 							success: function(result){				
@@ -99,11 +99,11 @@ function setItemProcess(){
 					 var that = this;
                     	$.ajax({
 							type:"POST",
-							url: "/items/item_unchecked",
+							url: path_uncheck,
 								data: {
 								
 									id: $(this).parent().attr("item_id"),
-									listId: $("#c_list_id").val()
+									
 							},
 							success: function(result){				
 							    $(that).parent().fadeTo("slow",0,function(){

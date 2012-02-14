@@ -1,18 +1,35 @@
 Todolistweb::Application.routes.draw do
   get "customers/index"
-
+  get "customers/change_password"
+  get "customers/change_email"
 
   get "todo_lists/sort_item"
   get "web/index"
+  get "web/login"
+  get "web/logout"
+  
   resources  :customers , :todo_lists ,:items
   
   resources :customers do
+      member do
+        put 'change_email'
+        put 'change_password'
+      end  
       resources :todo_lists
   end     
   resources :todo_lists do
-       resources :items
+      member do
+        get 'delete'
+      end  
+      resources :items do
+        collection do
+        post 'item_check'
+        post 'item_unchecked'  
+        end
+      end  
   end
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

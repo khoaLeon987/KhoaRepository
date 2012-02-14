@@ -1,0 +1,29 @@
+<script language='javascript'>
+	$(document).ready(function() {
+	      removeItem();
+	});
+</script>
+
+<div class="edit-content clearfix" >
+	<%=error_messages_for(@todo_list)%>
+	<%= form_for @todo_list, :url => todo_list_path(@todo_list) do |form| %>
+	  <div class="list-name">
+		<h3>List Name </h3>
+		<%= form.text_field(:list_name) %>
+	  </div>
+	  <div class="list-details clearfix">
+		<h3>Items </h3>
+		   	<ul>
+				<%= form.fields_for :items do |item_form| %>
+				    <li>
+						<div class="box clearfix"><%= item_form.text_field(:item_desc) %>
+							<%= item_form.check_box(:_destroy,:class=>'remove-check') %>	
+							<div class='delete-button'> </div>
+						</div>
+					</li>
+				<% end %>
+				<div class="update-edit"><%=submit_tag("Save change")%> or <%= link_to("Cancel",todo_list_items_url(@todo_list)) %>   </div>
+			</ul>	
+		</div>
+	<% end %>
+</div>	

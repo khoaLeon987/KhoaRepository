@@ -4,4 +4,12 @@
    <div class="sign-link" align="center"><%=link_to("Sign up for free",new_customer_path)%> </div>
 </div>
 
+<div class='right-content'>
+  <h1> <%=@todo_list.list_name%> </h1>
+  <ul class='item-box' align='center' >	
+     <% @todo_list.items.order("pos_index ASC").each do |item| %>
+	 	<li><%=item.item_desc %> </li>	
+    <%end%>
+  </ul>	
+</div>
 
