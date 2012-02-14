@@ -10,13 +10,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213035450) do
+ActiveRecord::Schema.define(:version => 20120213094133) do
 
   create_table "customers", :force => true do |t|
     t.string   "login_name", :limit => 50
     t.string   "full_name",  :limit => 50
     t.string   "email",      :limit => 150, :default => "", :null => false
     t.string   "password",   :limit => 50,  :default => "", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "item_desc",    :limit => 100, :default => "",    :null => false
+    t.boolean  "process_stat",                :default => false
+    t.integer  "pos_index",                   :default => 0
+    t.integer  "todo_list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "todo_lists", :force => true do |t|
+    t.string   "list_name",   :limit => 100, :default => "",    :null => false
+    t.string   "list_desc"
+    t.integer  "customer_id"
+    t.boolean  "share_value",                :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

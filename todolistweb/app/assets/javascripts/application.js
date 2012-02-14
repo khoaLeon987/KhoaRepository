@@ -7,3 +7,144 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function addItemAjax() {
+	$("#add_item_button").click(function(){
+		// $.post("/todo_list/item", {
+		// 	name: $("#item_val").val(),
+		// 	id: $("#c_list_id").val()
+		// }, function(result) {
+		// 	alert(result.id);
+		// }, "json");
+		$.ajax({
+			type:"POST",
+			url: "/items/create",
+				data: {
+					name: $("#item_val").val(),
+					list_id: $("#c_list_id").val()
+			},
+			success: function(result){
+				if(result == "fail")
+				{
+					alert("item name must not blank !!!");
+				}else{
+						var item = result;
+
+						var l0="<li item_id='";
+						var l1= item.id + "' item_pos='" +item.pos_index +  "'><input type='checkbox' value='1' class=check_item >";
+						var l2= item.item_desc+"</li>";
+						$("#todolist_items").append(l0+l1+l2);
+						$("#item_val").val("");
+				}				
+			
+			},
+			beforeSend: function(){
+
+			},
+			error: function(xhr){
+
+			}							
+		});
+		return false;
+	});		
+}
+
+function setItemProcess(){
+	
+	
+		// $.post("/todo_list/item", {
+		// 	name: $("#item_val").val(),
+		// 	id: $("#c_list_id").val()
+		// }, function(result) {
+		// 	alert(result.id);
+		// }, "json");
+	    	$(".item_list").delegate(".check_item","change",function() {
+ 				
+				if($(this).attr("checked") == "checked") { //checked
+					   var that = this;
+                    	$.ajax({
+							type:"POST",
+							url: "/items/item_check",
+								data: {
+								    cid: $("#c_list_id").val(),
+									id: $(this).parent().attr("item_id")
+							},
+							success: function(result){				
+							    $(that).parent().fadeTo("slow",0,function(){
+								
+								 		$(that).parent().remove();
+								        var item = result;
+
+										var l0="<li item_id='";
+										var l1= item.id + "' item_pos='" +item.pos_index  + "'><input type='checkbox' value='1' checked=true class='check_item' >";
+										var l2= item.item_desc+"</li>";
+										$("#todolist_done").append(l0+l1+l2);
+										
+										$("#todolist_items").children().each(function(index){
+											 $(this).attr("item_pos",index+1);
+
+										} );
+								
+							});  
+							},
+							beforeSend: function(){
+
+							},
+							error: function(xhr){
+
+							}							
+						});  
+				}//end if
+				else { //uncheck
+					
+					 var that = this;
+                    	$.ajax({
+							type:"POST",
+							url: "/items/item_unchecked",
+								data: {
+								
+									id: $(this).parent().attr("item_id"),
+									listId: $("#c_list_id").val()
+							},
+							success: function(result){				
+							    $(that).parent().fadeTo("slow",0,function(){
+								 		$(that).parent().remove();
+								        var item = result;
+										var l0="<li item_id='";
+										var l1= item.id + "' item_pos='" +item.pos_index + "'><input type='checkbox' value='0' class='check_item' >";
+										var l2= item.item_desc+"</li>";
+										$("#todolist_items").append(l0+l1+l2);
+									});  
+							},
+							beforeSend: function(){
+
+							},
+							error: function(xhr){
+
+							}							
+						});
+				}
+			});
+		return false;
+	
+}
+	
+function sortItem( arrmap ){
+	
+	$.ajax({
+		type:"GET",
+		url:"/todo_lists/sort_item",
+		data :{
+			
+			map: arrmap
+			
+		},
+		success: function(result){
+		
+		},
+		
+		beforeSend: function(){},
+		
+		error:function(){}
+
+	});
+}	

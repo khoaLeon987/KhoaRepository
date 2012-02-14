@@ -6,7 +6,7 @@ class CreateCustomers < ActiveRecord::Migration
         t.string "email"     , :default => "" , :null => false , :limit => 150
         t.string "password"  , :default =>"" , :null => false , :limit => 50
         t.timestamps
-      t.timestamps
+     
     end
   end
 end

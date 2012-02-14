@@ -14,6 +14,6 @@ class CustomersController < ApplicationController
     end     
   end    
   def show
-    @customer = Customer.find(params[:id])
+     @customer = session[:customer]
   end  
 end

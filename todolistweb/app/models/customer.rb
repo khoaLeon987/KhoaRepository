@@ -9,6 +9,14 @@ class Customer < ActiveRecord::Base
    attr_accessor :is_changing_password , :old_email, :is_changing_email , :new_pass, :old_pass, :new_pass_confirm
 
    #validate :validate_during_changing_password , :validate_during_changing_email
-  
+   def self.check_login(username="",pass="")
+        user = Customer.find_by_login_name(username)
+        if user && user.password == pass
+           return user
+         else
+           return false
+         end     
+
+   end  
   
 end
