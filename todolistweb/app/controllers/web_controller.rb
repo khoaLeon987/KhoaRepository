@@ -1,13 +1,11 @@
 class WebController < ApplicationController
-    before_filter :confirm_logged_in , :except => [:login , :logout , :index]
+  before_filter :confirm_logged_in , :except => [:login , :logout , :index]
   def index
       session[:customer] = nil
       @todo_list = TodoList.random
   end
-  
   def login
         if request.get?
-
         else
              check = Customer.check_login(params[:uname],params[:pass])
               if check
@@ -19,7 +17,6 @@ class WebController < ApplicationController
                 render('login')
               end
         end
-
   end   
   def confirm_logged_in
            unless session[:customer]
@@ -29,15 +26,11 @@ class WebController < ApplicationController
            else
              return true
            end    
-
   end  
   def success
   end  
   def logout
-
       session[:customer] = nil
       redirect_to(:controller => 'web',:action =>'index')
-
   end
-
 end
