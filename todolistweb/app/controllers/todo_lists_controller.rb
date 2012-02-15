@@ -25,7 +25,7 @@ class TodoListsController < ApplicationController
           end  
 
           # redirect_to(:controller =>'todo_list', :action => 'show' ,:cid => params[:cid] )
-          render :text => "successful"
+          render :text => "finish"
       end  
 
       def new
