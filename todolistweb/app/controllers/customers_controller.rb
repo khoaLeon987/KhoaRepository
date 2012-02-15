@@ -23,7 +23,9 @@ class CustomersController < ApplicationController
      else # request is a post or put request, then do the job      
        @customer.is_changing_password = true
        if @customer.update_attributes(params[:customer])
+
          flash[:notice] = "update password finish"
+
          redirect_to :action => "change_password"
        else
          render :action => :change_password
@@ -37,7 +39,9 @@ class CustomersController < ApplicationController
      else
        @customer.is_changing_email = true
        if @customer.update_attributes(params[:customer])
-          flash[:notice] = "update Email finish"
+
+          flash[:notice] = "Change Email complete!"
+
           redirect_to :action => "change_email"
        else
           render :action => 'change_email'

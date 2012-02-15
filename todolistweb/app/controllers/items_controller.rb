@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
       @details = @todo_list.items.where(:process_stat => false).order("pos_index ASC")
       @details_done = @todo_list.items.where(:process_stat => true)
     else
-      render :text => "you are not authorized to view this list"
+      render :text => "you are not allowed to view others list"
     end
   end
  
