@@ -1,7 +1,4 @@
 class CustomersController < ApplicationController
-  def index
-    @customers = Customer.all
-  end
   def new
     @customer = Customer.new
   end
@@ -13,9 +10,6 @@ class CustomersController < ApplicationController
        render('new')
     end     
   end    
-  def show
-     @customer = session[:customer]
-  end  
   def change_password
      @customer = Customer.find_by_login_name(session[:customer].login_name)
      if request.get?

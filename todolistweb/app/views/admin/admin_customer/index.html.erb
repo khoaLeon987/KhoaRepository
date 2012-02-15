@@ -1,0 +1,12 @@
+<h1>Customers#index</h1>
+<p>Find me in app/views/customers/index.html.erb</p>
+<% @customers.each do |customer| %>
+	<div class = 'customer-detail' > Customer <%= customer.id %>
+		<ul>
+			<li>UserName : <%= customer.login_name%> </li>
+			<li>Name : <%= customer.full_name %>     </li>
+			<li>email: <%=customer.email%>  </li>
+			<li align= 'right'><%= link_to("Show details",admin_admin_customer_path(customer)) %></li>
+		</ul>	 
+	</div>
+<%end%>	

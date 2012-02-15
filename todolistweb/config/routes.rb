@@ -8,6 +8,10 @@ Todolistweb::Application.routes.draw do
   get "web/login"
   get "web/logout"
   
+  namespace :admin do
+    resources :admin_customer
+  end  
+  
   resources  :customers , :todo_lists ,:items
   
   resources :customers do
