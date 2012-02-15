@@ -6,7 +6,7 @@
 			<li>UserName : <%= customer.login_name%> </li>
 			<li>Name : <%= customer.full_name %>     </li>
 			<li>email: <%=customer.email%>  </li>
-			<li align= 'right'><%= link_to("Show details",customer_path(customer)) %></li>
+			<li align= 'right'><%= link_to("Show details",admin_admin_customer_path(customer)) %></li>
 		</ul>	 
 	</div>
 <%end%>	
